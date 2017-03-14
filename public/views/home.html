@@ -1,0 +1,68 @@
+<!-- nav -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">ICMP</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a ng-href="http://localhost:3000/#!/show" href="#">View all</a></li>
+                        <li><a ng-href="http://localhost:3000/#!/contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1>No more wasting time</h1> 
+        <p>This is the easiest way to manage your employees</p>
+        <a data-toggle="modal" data-target="#login-modal" class="btn btn-primary">
+            <i class="fa fa-user-plus" aria-hidden="true">
+                Add Employee
+            </i>
+        </a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-container">
+                <h1>Create new employee</h1><br>
+                <form>
+                    <input ng-model="user.empNum" type="text" name="empNum" placeholder="Employee number">
+                    <input ng-model="user.fname" type="text" name="fname" placeholder="First Name" required>
+                    <input ng-model="user.lname" type="text" name="lname" placeholder="Last Name" required>
+                    <input ng-model="user.email" type="email" name="email" placeholder="E-mail">
+                    <input ng-model="user.tel" type="tel" name="tel" placeholder="Phone number">
+                    <br />
+                    <label for="license">Driver's license(Y/N)</label>
+                    <select ng-model="user.license" name="license">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+
+                    <label for="gender">Gender</label>
+                    <select ng-model="user.gender" name="gender">
+                        <option value="male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    
+
+                    <input ng-click="createUser(user)" data-dismiss="modal" type="submit" name="submit" class="login loginmodal-submit" value="Submit">
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- footer -->
+    <footer>
+        <p>&copy; 2017 All <em>copyrights</em> reserved by Ryan Lee<span id="homeNumber">
+            +1 905 808 6117
+        </span><p>
+    </footer>

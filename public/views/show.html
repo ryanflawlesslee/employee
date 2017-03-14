@@ -1,0 +1,100 @@
+<!-- nav -->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">ICMP</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a ng-href="http://localhost:3000/#!/show" href="#">View all</a></li>
+                    <li><a ng-href="http://localhost:3000/#!/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container table-div">
+    <h2>Employee list</h2>
+    <hr>
+    <br />
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr class="bg-info">
+                <td>Emp #</td>
+                <td>First name</td>
+                <td>Last name</td>
+                <td>E-mail</td>
+                <td>Phone #</td>
+                <td>Driver's license</td>
+                <td>Gender</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users">
+                <td>{{user.empNum}}</td>
+                <td>{{user.fname}}</td>
+                <td>{{user.lname}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.tel}}</td>
+                <td>{{user.license}}</td>
+                <td>{{user.gender}}</td>
+                <td><a ng-click="editUser(user._id)" data-toggle="modal" data-target="#login-modal2">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </a>
+                </td>
+                <td>
+                    <a ng-click="deleteUser(user._id)">
+                        <i class="fa fa-window-close" aria-hidden="true"></i>
+                        </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- Modal -->
+
+<div class="modal fade" id="login-modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-container">
+                <h1>Update {{ user.fname }} {{ user.lname }}</h1><br>
+                <form>
+                    <input ng-model="user.empNum" type="text" name="empNum" placeholder="Employee number">
+                    <input ng-model="user.fname" type="text" name="fname" placeholder="First Name" required>
+                    <input ng-model="user.lname" type="text" name="lname" placeholder="Last Name" required>
+                    <input ng-model="user.email" type="email" name="email" placeholder="E-mail">
+                    <input ng-model="user.tel" type="tel" name="tel" placeholder="Phone number">
+                    <br />
+                    <label for="license">Driver's license(Y/N)</label>
+                    <select ng-model="user.license" name="license">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+
+                    <label for="gender">Gender</label>
+                    <select ng-model="user.gender" name="gender">
+                        <option value="male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    
+
+                    <input ng-click="updateUser(user)"  data-dismiss="modal" type="button" name="submit" class="login loginmodal-submit" value="Update">
+                </form>
+            </div>
+            </div>
+        </div>
+
+
+
+
+<!-- footer -->
+<footer>
+    <p>&copy; 2017 All <em>copyrights</em> reserved by Ryan Lee<span id="homeNumber">
+        +1 905 808 6117
+    </span><p>
+</footer>
