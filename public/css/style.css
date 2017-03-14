@@ -218,4 +218,6 @@ hr {
 
 .contact-form {
   margin-top: 2%;
+  width: 100vw;
+  height: 30vh;
 }
